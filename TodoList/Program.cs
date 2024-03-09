@@ -12,9 +12,10 @@ namespace TodoList
                 Id = 2,
                 TodoList = "Leedcode"
             };
-            service.AddTodo(todo);
+          //  service.AddTodo(todo);
             service.ShowTodoList();
-            service.Update(todo);
+            //service.Update(todo);
+            service.Delete(1);
         }
     }
 }

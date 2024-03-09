@@ -20,6 +20,12 @@ namespace TodoList.Services.TodoLists
                 ? CreateAndLogInvalidTodo()
                 : ValidateAndAddTodo(todo);
         }
+
+        public void Delete(int id)
+        {
+            this.storageBroker.DeleteTodo(id);
+        }
+
         public void ShowTodoList()
         {
             Todo[] todos = this.storageBroker.ReadAllTodo();
