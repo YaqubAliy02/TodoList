@@ -1,6 +1,4 @@
-﻿using System;
-using TodoList.Brokers.Logging;
-
+﻿using TodoList.Brokers.Logging;
 namespace TodoList.Brokers.Loggings
 {
     internal class LoggingBroker : ILoggingBroker
@@ -11,14 +9,12 @@ namespace TodoList.Brokers.Loggings
            Console.WriteLine(exception);
            Console.ResetColor();
         }
-
         public void LogError(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
         public void LogInformation(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;

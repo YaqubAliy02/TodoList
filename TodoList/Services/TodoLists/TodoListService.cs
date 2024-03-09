@@ -2,7 +2,6 @@
 using TodoList.Brokers.Loggings;
 using TodoList.Brokers.Storages;
 using TodoList.Models;
-
 namespace TodoList.Services.TodoLists
 {
     internal class TodoListService : ITodoListService
@@ -20,9 +19,6 @@ namespace TodoList.Services.TodoLists
                 ? CreateAndLogInvalidTodo()
                 : ValidateAndAddTodo(todo);
         }
-
-
-
         private Todo CreateAndLogInvalidTodo()
         {
             loggingBroker.LogError("Todo is invalid");

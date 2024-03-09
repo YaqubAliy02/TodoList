@@ -1,5 +1,4 @@
 ﻿using TodoList.Models;
-
 namespace TodoList.Brokers.Storages
 {
     internal class FileStorageBroker : IStorageBroker
@@ -17,22 +16,18 @@ namespace TodoList.Brokers.Storages
             File.AppendAllText(FILEPATH, todoLine);
             return todo;
         }
-
         public void DeleteTodo(int id)
         {
             throw new NotImplementedException();
         }
-
         public Todo[] ReadAllTodo()
         {
             throw new NotImplementedException();
         }
-
         public void UpdateTodo(Todo todo)
         {
             throw new NotImplementedException();
         }
-
         private void EnsureFileExists()
         {
             bool fileExists = File.Exists(FILEPATH);

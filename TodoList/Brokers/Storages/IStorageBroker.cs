@@ -1,5 +1,4 @@
 ﻿using TodoList.Models;
-
 namespace TodoList.Brokers.Storages
 {
     internal interface IStorageBroker
