@@ -4,7 +4,7 @@
     {
         void LogError(Exception exception);
         void LogInformation(string message);
-        void LogError(string message);
+        void LogError(string userMessage);
 
     }
 }
