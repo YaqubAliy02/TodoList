@@ -1,0 +1,3 @@
+2*Learning
+4*Leetcode
+9*Eating

@@ -34,7 +34,7 @@ namespace TodoList.Services.TodoLists
             {
                 this.loggingBroker.LogInformation($"{todo.Id},{todo.TodoList}");
             }
-            this.loggingBroker.LogInformation("======End of TodoList");
+            this.loggingBroker.LogInformation("======End of TodoList======");
         }
 
         public void Update(Todo todo)
