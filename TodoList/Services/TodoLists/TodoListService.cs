@@ -19,6 +19,16 @@ namespace TodoList.Services.TodoLists
                 ? CreateAndLogInvalidTodo()
                 : ValidateAndAddTodo(todo);
         }
+        public void ShowTodoList()
+        {
+            Todo[] todos = this.storageBroker.ReadAllTodo();
+
+            foreach (Todo todo in todos)
+            {
+                this.loggingBroker.LogInformation($"{todo.Id},{todo.TodoList}");
+            }
+            this.loggingBroker.LogInformation("======End of TodoList");
+        }
         private Todo CreateAndLogInvalidTodo()
         {
             loggingBroker.LogError("Todo is invalid");
@@ -36,5 +46,7 @@ namespace TodoList.Services.TodoLists
                 return storageBroker.AddTodo(todo);
             }
         }
+
+
     }
 }

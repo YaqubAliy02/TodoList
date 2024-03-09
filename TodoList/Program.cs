@@ -13,6 +13,7 @@ namespace TodoList
                 TodoList = "Sleeping"
             };
             service.AddTodo(todo);
+            service.ShowTodoList();
         }
     }
 }

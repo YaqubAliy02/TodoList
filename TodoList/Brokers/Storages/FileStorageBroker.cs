@@ -4,7 +4,6 @@ namespace TodoList.Brokers.Storages
     internal class FileStorageBroker : IStorageBroker
     {
         private const string FILEPATH = "../../../Assets/TodoList.txt";
-
         public FileStorageBroker()
         {
             EnsureFileExists();
@@ -16,11 +15,26 @@ namespace TodoList.Brokers.Storages
             File.AppendAllText(FILEPATH, todoLine);
             return todo;
         }
-        public void DeleteTodo(int id)
-        {
-            throw new NotImplementedException();
-        }
         public Todo[] ReadAllTodo()
+        {
+            string[] TodoLines = File.ReadAllLines(FILEPATH);
+            int todoLength = TodoLines.Length;
+            Todo[] todos = new Todo[todoLength];
+
+            for(int iteration = 0; iteration < todoLength; iteration++)
+            {
+                string todoLine = TodoLines[iteration];
+                string[] todoProperties = todoLine.Split("*");
+                Todo todo = new Todo
+                {
+                    Id = Convert.ToInt32(todoProperties[0]),
+                    TodoList = todoProperties[1]
+                };
+                todos[iteration] = todo;
+            }
+            return todos;
+        }
+        public void DeleteTodo(int id)
         {
             throw new NotImplementedException();
         }
