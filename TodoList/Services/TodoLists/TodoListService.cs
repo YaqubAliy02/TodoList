@@ -10,6 +10,7 @@ namespace TodoList.Services.TodoLists
         private readonly ILoggingBroker loggingBroker;
         public TodoListService()
         {
+
             storageBroker = new FileStorageBroker();
             loggingBroker = new LoggingBroker();
         }
@@ -29,6 +30,21 @@ namespace TodoList.Services.TodoLists
             }
             this.loggingBroker.LogInformation("======End of TodoList");
         }
+
+        public void Update(Todo todo)
+        {
+            if(todo is null)
+            {
+                this.loggingBroker.LogError("Your Todo is empty");
+                return;
+            }
+            if(todo.Id is 0 || string.IsNullOrEmpty(todo.TodoList))
+            {
+                this.loggingBroker.LogError("Your Todo is invalid");
+            }
+            this.storageBroker.UpdateTodo(todo);
+        }
+
         private Todo CreateAndLogInvalidTodo()
         {
             loggingBroker.LogError("Todo is invalid");

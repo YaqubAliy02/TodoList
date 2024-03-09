@@ -9,11 +9,12 @@ namespace TodoList
             ITodoListService service = new TodoListService();
             Todo todo = new Todo
             {
-                Id = 1,
-                TodoList = "Sleeping"
+                Id = 2,
+                TodoList = "Leedcode"
             };
             service.AddTodo(todo);
             service.ShowTodoList();
+            service.Update(todo);
         }
     }
 }

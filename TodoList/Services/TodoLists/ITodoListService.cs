@@ -5,5 +5,6 @@ namespace TodoList.Services.TodoLists
     {
         Todo AddTodo(Todo todo);
         void ShowTodoList();
+        void Update(Todo todo);
     }
 }

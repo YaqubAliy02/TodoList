@@ -40,7 +40,20 @@ namespace TodoList.Brokers.Storages
         }
         public void UpdateTodo(Todo todo)
         {
-            throw new NotImplementedException();
+            Todo[] todos = ReadAllTodo();
+            for(int iteration = 0; iteration<todos.Length; iteration++)
+            {
+                if (todos[iteration].Id == todo.Id)
+                {
+                    todos[iteration] = todo;
+                    break;
+                }
+            }
+            File.WriteAllText(FILEPATH, string.Empty);
+            foreach(Todo todo1 in todos)
+            {
+                AddTodo(todo1);
+            }
         }
         private void EnsureFileExists()
         {
