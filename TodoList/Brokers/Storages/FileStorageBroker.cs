@@ -36,7 +36,15 @@ namespace TodoList.Brokers.Storages
         }
         public void DeleteTodo(int id)
         {
-            throw new NotImplementedException();
+            Todo[] todos = this.ReadAllTodo();
+            File.WriteAllText(FILEPATH, string.Empty);
+            for (int iteration = 0; iteration < todos.Length; iteration++)
+            {
+                if (todos[iteration].Id != id)
+                {
+                    this.AddTodo(todos[iteration]);
+                }
+            }
         }
         public void UpdateTodo(Todo todo)
         {
